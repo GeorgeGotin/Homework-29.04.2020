@@ -27,10 +27,12 @@ import matplotlib.pyplot as plt
 fs=[[f1,f1_d,'x^5+17*x^2'],[f2,f2_d,'sin(x)*cos(x)'],[f3,f3_d,'x+sin(x)+e^x']]
 fig = plt.figure()
 a=[]
+print('Input x, please:',end='')
+xs = int(input())
 for i in range(3):
 	a.append(fig.add_subplot(1,3,i+1))
-	x = [j for j in range(10)]
-	y = [fs[i][1](0)-derivative(fs[i][0],0,0.1**j) for j in range(10)]
+	x = [j for j in range(20)]
+	y = [fs[i][1](xs)-derivative(fs[i][0],xs,0.1**j) for j in range(20)]
 	a[i].grid(axis='both')
 	a[i].set_title(fs[i][2])
 	a[i].plot(x,y)
